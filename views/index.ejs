@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>weather</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <!-- Use some bootstrap CSS and google fonts to quicken the process -->
+    <!-- you shall also add a favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/office/16/000000/sunset--v2.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Main container -->
+<div class="container">
+
+    <!-- This shall hold the input fields and the output data -->
+    <fieldset>
+      <!-- This form shall be used to fetch your city name -->
+      <form action="/" method="post">
+        <p>Possible categories are: Any, Misc, Programming, Dark, Pun, Spooky and Christmas</p>
+        <br>
+        <hr>
+        <input name="cat" type="text" class="ghost-input" placeholder="Enter a Category" required>
+        <input type="submit" class="ghost-button" value="Get Joke">
+      </form>
+  
+      <!-- Upon fetching of data you will display it -->
+      <%if( Joke !== null){ %>
+      <div class="grid">
+        
+      </div>
+  
+      <!-- You can find other data fetched by the app on the console in JSON form and display it as you please -->
+      <div class="card-deck">
+        <div class="card card-accent-dark mb-3" style="max-width: 18rem;">
+          <div class="card-body text-dark">
+            <h5 class="card-title">Joke of the day</h5>
+            <p class="card-text">
+              Category:
+              <%= category %>
+            </p>
+            <p class="card-text">
+              Setup:
+              <%= setup %>
+            </p>
+            <p class="card-text">
+              Delivery:
+              <%= delivery %>
+            </p>
+          </div>
+        </div>
+        <% } %>
+        <% if(error !== null){ %>
+        <p>
+          <%= error %>
+          These are all the available categories: Any, Misc, Programming, Dark, Pun, Spooky, Christmas
+        </p>
+        <% } %>
+    </fieldset>
+  </div>
+  </body>
+</html>
